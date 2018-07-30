@@ -1,8 +1,10 @@
 package com.lingnan.bootdemo.controller;
 
+import com.lingnan.bootdemo.bean.Course;
 import com.lingnan.bootdemo.bean.School;
+import com.lingnan.bootdemo.bean.Score;
 import com.lingnan.bootdemo.bean.Student;
-import com.sun.deploy.net.HttpResponse;
+import com.lingnan.bootdemo.util.DBConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,25 +12,36 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import javax.annotation.Resources;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-@RequestMapping("/")
+@RequestMapping("/stu")
 @Controller
 public class StudentController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private Course course;
 
-    @Autowired
-    private Student student;
+    private Score score;
 
-    @Autowired
     private School school;
 
     @Value("${com.lingan.number}")
     private Object random;
+
+    @Resource( name = "connector")
+    private DBConnector dbConnector;
+
+    @Autowired
+    public StudentController(School school, Course course, Score score){
+        this.school = school;
+        this.course = course;
+        this.score = score;
+    }
 
     @RequestMapping("/helloWorld")
     @ResponseBody
@@ -45,7 +58,9 @@ public class StudentController {
     @ResponseBody
     public String getStudentAction(@PathVariable String id){
 
-        return this.student.toString();
+        this.logger.info(this.dbConnector.toString());
+        this.logger.info(this.course.toString());
+        return this.score.toString();
     }
 
     @RequestMapping("/school/{id}")
@@ -64,6 +79,7 @@ public class StudentController {
         this.logger.info(params.toString());
         return params;
     }
+
 
 
 
