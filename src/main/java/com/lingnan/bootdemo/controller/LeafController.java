@@ -24,7 +24,12 @@ public class LeafController {
     @RequestMapping("/")
     public String index(Model model){
 
-        this.logger.info("thymeleaf首页");
+        logger.trace("日志输出 trace");
+        logger.debug("日志输出 debug");
+        logger.info("日志输出 info");
+        logger.warn("日志输出 warn");
+        logger.error("日志输出 error");
+
         List<LearnResource> learnList =new ArrayList<>();
         LearnResource bean =new LearnResource("官方参考文档","Spring Boot Reference Guide","http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#getting-started-first-application");
         learnList.add(bean);
@@ -49,7 +54,7 @@ public class LeafController {
 
         model.addAttribute("learnList", learnList);
 
-        return "index";
+        return "test";
     }
 
 

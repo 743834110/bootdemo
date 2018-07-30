@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingnan.bootdemo.mapper.StudentMapper">
+    <resultMap id="baseResultMap" type="Student">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="address" property="address" />
+    </resultMap>
+
+    <sql id="baseColumnList">
+        id, name, age, address
+    </sql>
+
+    <!--添加-->
+    <insert id="add" parameterType="Student">
+        insert into student
+                values (null, #{name}, #{age}, #{address})
+    </insert>
+    <delete id="deleteByIds">
+
+    </delete>
+
+    <!--查询-->
+    <select id="listStudent" parameterType="Pager" resultMap="baseResultMap">
+        select
+        <include refid="baseColumnList" />
+        from student
+        <if test="param != null">
+            <where>
+                <if test="param.name != null">
+                    name = #{param.name}
+                </if>
+                <if test="param.age != null">
+                    and age = #{param.age}
+                </if>
+                <if test="param.address != null">
+                    and address = #{param.address}
+                </if>
+            </where>
+        </if>
+        limit #{start}, #{length}
+    </select>
+
+    <select id="queryStudentById" parameterType="int" resultMap="baseResultMap">
+        select *
+        from student
+        where id = #{id}
+    </select>
+
+    <!--更新-->
+    <update id="update" parameterType="Student">
+        update student
+        set name = #{name}, age = #{age}, address = #{address}
+        where id = #{id}
+    </update>
+
+
+
+</mapper>

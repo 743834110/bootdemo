@@ -43,45 +43,45 @@ public class StudentController {
         this.score = score;
     }
 
-    @RequestMapping("/helloWorld")
-    @ResponseBody
-    public Map<String, Object> helloWorldAction(){
-
-        Map<String, Object> result = new HashMap<>();
-        result.put("message", "Hello My Spring World!");
-        return result;
-    }
-
-
-
-    @RequestMapping("/student/{id}")
-    @ResponseBody
-    public String getStudentAction(@PathVariable String id){
-
-        this.logger.info(this.dbConnector.toString());
-        this.logger.info(this.course.toString());
-        return this.score.toString();
-    }
-
-    @RequestMapping("/school/{id}")
-    @ResponseBody
-    public String getSchoolAction(@PathVariable String id){
-
-        return this.school.toString();
-
-    }
-
-    @RequestMapping("/test")
-    @ResponseBody
-    public Map<String, Object> dispatcherParamsAction(@RequestParam Map<String, Object> params){
-
-        this.logger.info(this.random.toString());
-        this.logger.info(params.toString());
-        return params;
-    }
-
-
 
 
 
 }
+
+
+//    @RequestMapping("/helloWorld")
+//    @ResponseBody
+//    public Map<String, Object> helloWorldAction(){
+//
+//        Map<String, Object> result = new HashMap<>();
+//        result.put("message", "Hello My Spring World!");
+//        return result;
+//    }
+//
+//
+//
+//    @RequestMapping("/student/{id}")
+//    @ResponseBody
+//    public String getStudentAction(@PathVariable String id){
+//
+//        this.logger.info(this.dbConnector.toString());
+//        this.logger.info(this.course.toString());
+//        return this.score.toString();
+//    }
+//
+//    @RequestMapping("/school/{id}")
+//    @ResponseBody
+//    public String getSchoolAction(@PathVariable String id){
+//
+//        return this.school.toString();
+//
+//    }
+//
+//    @RequestMapping("/test")
+//    @ResponseBody
+//    public Map<String, Object> dispatcherParamsAction(@RequestParam Map<String, Object> params){
+//
+//        this.logger.info(this.random.toString());
+//        this.logger.info(params.toString());
+//        return params;
+//    }

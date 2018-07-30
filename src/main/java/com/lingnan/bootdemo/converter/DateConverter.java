@@ -1,4 +1,4 @@
-package com.lingnan.bootdemo;
+package com.lingnan.bootdemo.converter;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

@@ -1,5 +1,6 @@
 package com.lingnan.bootdemo;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.lingnan.bootdemo.bean.Course;
 import com.lingnan.bootdemo.bean.School;
 import com.lingnan.bootdemo.bean.Score;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
+import javax.sql.DataSource;
 import java.util.Random;
 
 
@@ -52,8 +54,6 @@ public class BootDemoApplication {
         return new Score(this.context.getBean(Student.class), this.course(), 56);
     };
 
-    @Autowired
-    private Environment environment;
 
 
     public static void main(String[] args) {

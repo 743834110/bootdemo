@@ -29,7 +29,7 @@ public class JspController {
 
     @RequestMapping("")
     public String index(Model model){
-
+        this.logger.info("---------------fdfddf----------");
         return this.leafController.index(model);
     }
 }

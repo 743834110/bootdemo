@@ -28,7 +28,7 @@
     <div class="alert alert-success text-center" role="alert">Sptring Boot学习资源大奉送，爱我就关注嘟嘟公众号：嘟爷java超神学堂</div>
     <table class="table table-striped table-bordered">
         <tr>
-            <td>作者</td>fdfdfd
+            <td>作者</td>
             <td>教程名称</td>
             <td>地址</td>
         </tr>
